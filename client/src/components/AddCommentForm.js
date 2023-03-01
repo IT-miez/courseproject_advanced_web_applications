@@ -43,7 +43,12 @@ function AddCommentForm() {
         .then((response) => response.json())
         .then((data => {
             console.log("RESPONSE FROM ADDING COMMENT")
-            console.log(data)
+            if(data.msg === "comment added") {
+                document.location.reload()
+            } else {
+                console.log(data)
+            }
+            
         }))
     }
 
@@ -60,9 +65,15 @@ function AddCommentForm() {
                 fullWidth
                 name="comment"
                 label="comment"
+                slotProps={{
+                    textarea: {
+                      id: 'comment'
+                }
+                }}
             />
             <Button
                 type="submit"
+                id="submit"
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}

@@ -1,9 +1,9 @@
-import FormControl from '@mui/material/FormControl';
+//import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
-import InputLabel from '@mui/material/InputLabel';
-import Input from '@mui/material/Input';
-import FormHelperText from '@mui/material/FormHelperText';
-import TextareaAutosize from '@mui/base/TextareaAutosize';
+//import InputLabel from '@mui/material/InputLabel';
+//import Input from '@mui/material/Input';
+//mport FormHelperText from '@mui/material/FormHelperText';
+//import TextareaAutosize from '@mui/base/TextareaAutosize';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import { Container } from '@mui/material';
@@ -64,15 +64,24 @@ function AddPostForm() {
                 autoFocus
             />
             <Textarea
+                slotProps={{
+                    textarea: {
+                      id: 'code'
+                }
+                }}
+
+                name="code"
+                label="code"
                 size="lg"
                 margin="normal"
                 required
                 fullWidth
-                name="code"
-                label="code"
+                
             />
             <Button
                 type="submit"
+                className="submitbutton"
+                name="submit"
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}

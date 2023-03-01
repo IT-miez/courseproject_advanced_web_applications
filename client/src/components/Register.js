@@ -13,9 +13,9 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import LoginAppBar from './LoginAppBar';
-import Alert from '@mui/material/Alert';
-import AlertTitle from '@mui/material/AlertTitle';
-
+//import Alert from '@mui/material/Alert';
+//import AlertTitle from '@mui/material/AlertTitle';
+import Textarea from '@mui/joy/Textarea';
 
 
 function storeToken(token) {
@@ -55,7 +55,8 @@ export default function Register() {
       },
       body: JSON.stringify({
           "email": data.get("email"),
-          "password": data.get('password')
+          "password": data.get('password'),
+          "bio": data.get("bio")
       }),
       
   })
@@ -131,6 +132,16 @@ export default function Register() {
               id="password"
               autoComplete="current-password"
             />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="bio"
+              label="bio"
+              type="bio"
+              id="bio"
+            />
+
             <Button
               type="submit"
               id="submit"

@@ -62,6 +62,7 @@ function(req, res, next) {
             {
               email: req.body.email,
               password: hash,
+              bio: req.body.bio,
               creationdate: currentDate
             },
             (err, ok) => {
@@ -190,6 +191,27 @@ router.get("/posts/:postID/comments", function(req, res, next) {
 
 
 
+// LOAD USER DATA FOR PROFILE PAGE
+router.get("/profile/:userID", passport.authenticate("jwt",{session: false}), function(req, res, next) {
+ 
+  console.log(req.params.userID)
+  let user = req.params.userID
+
+  User.findById(user, (err, gottenUser) => {
+    if(err) return next(err)
+    if(!gottenUser){
+      console.log("No user found!")
+    }
+    else {
+      console.log(gottenUser)
+      console.log("USER PROFILE FOUND")
+      //res.status(200).json(recipes)
+      res.status(200).send(gottenUser)
+    }
+  })
+  
+})
+
 
 // ADD A COMMENT
 // NEED TO BE AUTHENTICATED
@@ -209,7 +231,7 @@ router.post("/addComment/:postID", passport.authenticate("jwt",{session: false})
     },
     (err, ok) => {
       if(err) throw err;
-      return res.status(200).send({msg:"comment added to database related to post"})
+      return res.status(200).send({msg:"comment added"})
     }
   )
 
@@ -219,6 +241,12 @@ router.post("/addComment/:postID", passport.authenticate("jwt",{session: false})
 
 
 
+
+
+
+
+
+// JUST FOR RANDOM TESTING
 router.get("/private", passport.authenticate("jwt",{session: false}), function(req, res, next) {
   res.json({email: req.user.email})
 })

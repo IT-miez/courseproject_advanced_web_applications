@@ -9,6 +9,7 @@ import SignIn from './components/SignIn';
 import Register from "./components/Register"
 import PostsPage from './components/PostsPage';
 import PostOpened from './components/PostOpened';
+import ProfilePage from './components/ProfilePage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -20,6 +21,7 @@ root.render(
           <Route path="/register" element={<Register />} />
           <Route path="/posts" element={<PostsPage />} />
           <Route path="/posts/:postID" element={<PostOpened />} />
+          <Route path="/profile/:userID" element={<ProfilePage />} />
       </Routes>
     </Router>
   </React.StrictMode>

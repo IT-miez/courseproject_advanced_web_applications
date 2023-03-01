@@ -6,11 +6,23 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 //import MenuIcon from '@mui/icons-material/Menu';
-//import { useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
+
+// PARSING FUNCTION FROM STACKOVERFLOW
+function parsejwttoken (jwt_token) {
+  let base64Url = jwt_token.split('.')[1];
+  let base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+  let jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
+      return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+  }).join(''));
+  console.log("JSON TOKEN")
+  console.log(jsonPayload)
+  return JSON.parse(jsonPayload);
+}
 
 const authToken = localStorage.getItem("auth_token")
-let button, button2
+let button, button2, userProfileButton
 
 if(window.location.href === "localhost:3000/posts") {
   button2 = (
@@ -19,11 +31,28 @@ if(window.location.href === "localhost:3000/posts") {
     </div>
   )
 } else {
+
   button2= (
     <div>
       <Button color="inherit" href="/posts" variant="outlined">To Posts Page</Button>
     </div>
   )
+
+  if(authToken) {
+    let datatoken = parsejwttoken(authToken)
+    console.log(datatoken.id)
+
+    userProfileButton = (
+      <div>
+        <Link to={"/profile/"+datatoken.id} style={{textDecoration:"none", marginRight: 10}}>
+          <Button className="profilePageButton" color="inherit" variant="outlined">{datatoken.email}</Button>
+        </Link>
+        
+      </div>
+    )
+  }
+  
+  
 }
 
 
@@ -51,6 +80,7 @@ if(!authToken) {
   
 } else {
   button = <Button color="inherit" onClick={logoutButton}>Logout</Button>
+  
 }
 
 export default function ButtonAppBar() {
@@ -69,6 +99,7 @@ export default function ButtonAppBar() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Code Posts Website
           </Typography>
+          {userProfileButton}
           {button2}
           {button}
         </Toolbar>
