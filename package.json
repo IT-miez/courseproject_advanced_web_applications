@@ -1,0 +1,17 @@
+{
+  "name": "courseproject_advanced_web_applications",
+  "version": "1.0.0",
+  "description": "My courseproject for a web applications course",
+  "main": "index.js",
+  "scripts": {
+    "start": "cd server && npm start",
+    "dev:client": "cd client && npm start",
+    "dev:server": "cd server && npm start",
+    "preinstall": "cd server && npm install",
+    "install": "cd client && npm install",
+    "build": "cd client && npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "IT-miez",
+  "license": "ISC"
+}
