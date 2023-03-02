@@ -77,6 +77,8 @@ function(req, res, next) {
   /*res.send("ok") */
 })
 
+
+
 // LOGIN ROUTE
 router.post("/login", function(req, res, next) {
   const user = User.findOne({email: req.body.email}, (err, user) => {
@@ -112,6 +114,8 @@ router.post("/login", function(req, res, next) {
   })
 })
 
+
+// ADD A POST -ROUTE
 router.post("/addPost", passport.authenticate("jwt",{session: false}), function(req, res, next) {
   console.log(req.user)
 
@@ -135,7 +139,7 @@ router.post("/addPost", passport.authenticate("jwt",{session: false}), function(
 })
 
 
-// SEND ALL POSTS
+// SEND ALL POSTS / FOR POSTSPAGE
 router.get("/getPosts", async function(req, res, next) {
   let PostsData = await Post.find({})
   //console.log(PostsData)
@@ -146,7 +150,7 @@ router.get("/getPosts", async function(req, res, next) {
 })
 
 
-// SEND ONE POST
+// SEND ONE POST / OPEN A POST
 router.get("/posts/:postID", function(req, res, next) {
  
   console.log(req.params.postID)
@@ -168,7 +172,7 @@ router.get("/posts/:postID", function(req, res, next) {
 })
 
 
-// LOAD COMMENTS TO A POST
+// LOAD COMMENTS TO A POST / FOR A OPENED POST
 router.get("/posts/:postID/comments", function(req, res, next) {
   console.log("LOAD ALL COMMENTS TO THIS POST")
   console.log(req.params.postID)

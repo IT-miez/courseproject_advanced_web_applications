@@ -22,6 +22,11 @@ const hljs = require('highlight.js');
 
 // highlight.js import done
 
+
+// A COMPONENT TO SHOW ALL AVAILABLE POSTS
+// RENDERS ADD POST -FORM IF USER IS AUTHENTICATED
+
+
 function PostsPage() {
 
     let [jsondata, setJsonData] = useState(null)

@@ -18,6 +18,14 @@ import LoginAppBar from './LoginAppBar';
 import Textarea from '@mui/joy/Textarea';
 
 
+
+
+// REGISTER PAGE
+// USER CAN REGISTER 
+// NEEDS EMAIL, PASSWORD AND BIO
+// CREATION DATE IS SAVED TO DATABASE
+
+
 function storeToken(token) {
   localStorage.setItem("auth_token", token);
 }

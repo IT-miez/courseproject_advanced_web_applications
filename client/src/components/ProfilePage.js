@@ -22,6 +22,10 @@ import ButtonAppBar from './ButtonAppBar';
 //let commentform
 
 
+// A COMPONENT TO SHOW A USERS PROFILE IS THE USER HAS LOGON
+// IF NOT DOESNT LOAD ANYTHING USEFUL TO THE PAGE, ONLY SOME TEXT THAT NOT FOUND
+
+
 
 function ProfilePage() {
 

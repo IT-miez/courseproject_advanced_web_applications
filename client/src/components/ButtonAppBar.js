@@ -9,7 +9,15 @@ import IconButton from '@mui/material/IconButton';
 import { Link } from 'react-router-dom'
 
 
+
+// A COMPONENT TO SHOW BUTTONS DEPENDING IF USER IS AUTHENTICATED OR NOT
+// HAS LINKS TO DIFFERENT PAGES
+// HAS LOGOUT IF USER IS NOT LOGIN
+
+
+
 // PARSING FUNCTION FROM STACKOVERFLOW
+// LINK: https://stackoverflow.com/questions/38552003/how-to-decode-jwt-token-in-javascript-without-using-a-library
 function parsejwttoken (jwt_token) {
   let base64Url = jwt_token.split('.')[1];
   let base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
@@ -20,6 +28,8 @@ function parsejwttoken (jwt_token) {
   console.log(jsonPayload)
   return JSON.parse(jsonPayload);
 }
+
+
 
 const authToken = localStorage.getItem("auth_token")
 let button, button2, userProfileButton

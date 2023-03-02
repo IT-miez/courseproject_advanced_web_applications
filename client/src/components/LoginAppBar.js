@@ -10,6 +10,11 @@ import IconButton from '@mui/material/IconButton';
 
 
 
+// A COMPONENT TO SHOW BUTTONS DEPENDING IF USER IS AUTHENTICATED OR NOT
+// HAS LINKS TO DIFFERENT PAGES
+// HAS LOGOUT IF USER IS NOT LOGIN
+
+
 
 /*
 function Test() {

@@ -15,6 +15,12 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import LoginAppBar from './LoginAppBar';
 
 
+
+// LOGIN PAGE
+// USER CAN LOGIN 
+// NEEDS EMAIL AND PASSWORD
+// SAVES TOKEN TO LOCALSTORAGE
+
 function storeToken(token) {
   localStorage.setItem("auth_token", token);
 }

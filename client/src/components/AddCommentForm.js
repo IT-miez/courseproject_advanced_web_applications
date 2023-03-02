@@ -7,7 +7,10 @@ import Textarea from '@mui/joy/Textarea';
 import { useParams } from "react-router-dom"
 
 
-
+// A COMPONENT THAT IS RENDERED WHEN USER IS AUTHENTICATED
+// TO ADD A COMMENT TO A POST
+// NOT RENDERED IF NOT AUTHENTICATED
+// CHECK IS DONE WHERE IT IS USED
 
 
 
@@ -27,7 +30,7 @@ function AddCommentForm() {
         
         console.log("POST ID IS "+postID)
 
-        // SEND TO SERVER ADDPOST ROUTE
+        // SEND TO SERVER ADD COMMENT -ROUTE
         fetch("/user/addComment/"+postID, {
             method: "POST",
             headers: {

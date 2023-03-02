@@ -23,8 +23,18 @@ import LoadComments from './LoadComments';
 
 // hightlight.js import
 const hljs = require('highlight.js');
-
 // highlight.js import done
+
+
+
+
+
+// A COMPONENT TO SHOW A OPENED POST
+// FETCHES THE POST FROM BACKEND
+// IF USER IS AUTHENTICATED ADDS COMMENT FORM POSSIBILTY
+// IF POST IS NOT FOUND SAYS IT ON THE PAGE
+// RENDERES THE POST IF AVAILABLE AND FOUND FROM MONGODB DATABASE
+
 
 
 
