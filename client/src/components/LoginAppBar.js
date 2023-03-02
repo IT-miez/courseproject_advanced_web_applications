@@ -50,7 +50,7 @@ export default function LoginAppBar({nameOfThePage, buttonName, buttonLocation})
     if(!authToken) {
     button = <Button color="inherit" href={buttonLocation}>{buttonName}</Button>
     } else {
-    button = <Button color="inherit" onClick={logoutButton}>Logout</Button>
+    button = <Button color="inherit" className="logoutButton" onClick={logoutButton}>Logout</Button>
     }
 
   return (

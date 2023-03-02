@@ -79,7 +79,7 @@ if(!authToken) {
 
   
 } else {
-  button = <Button color="inherit" onClick={logoutButton}>Logout</Button>
+  button = <Button color="inherit" className="logoutButton" onClick={logoutButton}>Logout</Button>
   
 }
 
