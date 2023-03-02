@@ -3,7 +3,7 @@
 This is my course project.
 
 I made a report in pdf-format, link to to it is here:
-https://lut-my.sharepoint.com/:w:/g/personal/veikko_moilanen_student_lut_fi/Ee_ERriUHOtBmqzcEOiSLYYBUlhdaKYdoLwVxVDtsp18ow?e=Z5WPzr
+https://lut-my.sharepoint.com/:w:/g/personal/veikko_moilanen_student_lut_fi/Ee_ERriUHOtBmqzcEOiSLYYBUlhdaKYdoLwVxVDtsp18ow?e=Trcvkg
 ( need to be login through LUT to access )
 
 
