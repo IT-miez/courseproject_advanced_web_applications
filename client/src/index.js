@@ -12,6 +12,9 @@ import PostOpened from './components/PostOpened';
 import ProfilePage from './components/ProfilePage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+// ALL THE PATHS NEEDED IN THE SITE
+
 root.render(
   <React.StrictMode>
     <Router>
