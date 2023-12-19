@@ -3,26 +3,21 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-//import FormControlLabel from '@mui/material/FormControlLabel';
-//import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-//import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import LoginAppBar from './LoginAppBar';
 
-
-
 // LOGIN PAGE
-// USER CAN LOGIN 
+// USER CAN LOGIN
 // NEEDS EMAIL AND PASSWORD
 // SAVES TOKEN TO LOCALSTORAGE
 
 function storeToken(token) {
-  localStorage.setItem("auth_token", token);
+  localStorage.setItem('auth_token', token);
 }
 
 function Copyright(props) {
@@ -31,9 +26,10 @@ function Copyright(props) {
       {'Copyright © '}
       <Link color="inherit" href="https://mui.com/">
         Your Website
-      </Link>{' '}
+      </Link>
+      {' '}
       {new Date().getFullYear()}
-      {'.'}
+      .
     </Typography>
   );
 }
@@ -50,50 +46,30 @@ export default function SignIn() {
     });
 
     // SEND TO SERVER LOGIN ROUTE
-    fetch("/user/login", {
-      method: "POST",
+    fetch('/user/login', {
+      method: 'POST',
       headers: {
-          "Content-Type": "application/json"
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-          "email": data.get("email"),
-          "password": data.get('password')
+        email: data.get('email'),
+        password: data.get('password'),
       }),
-      
-  })
+
+    })
       .then((response) => response.json())
       .then((data) => {
-          console.log("LOGIN FETCH")
-          if(data.token) {
-              console.log(data.token)
-              storeToken(data.token);
-              console.log("LOGIN SUCCESSFUL")
-              window.location.href="/posts";
-          } else {
-              console.log("NO TOKEN GIVEN")
-              if(data.msg){
-                  console.log(data.msg)
-              }
-              else if(data.message === "ok") {
-                  console.log("successfull")
-                  //window.location.href="/login.html";
-              } 
-              else {
-                  console.log("Very strange error!")
-              }
-
-
-          }
-
-      })
-
-
+        if (data.token) {
+          storeToken(data.token);
+          window.location.href = '/posts';
+        }
+      });
   };
 
   return (
-    
+
     <ThemeProvider theme={theme}>
-      <LoginAppBar nameOfThePage={"Login page"} buttonName={"to register"} buttonLocation={"/register"} />
+      <LoginAppBar nameOfThePage="Login page" buttonName="to register" buttonLocation="/register" />
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
@@ -104,9 +80,7 @@ export default function SignIn() {
             alignItems: 'center',
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-
-          </Avatar>
+          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }} />
           <Typography component="h1" variant="h5">
             Login
           </Typography>
@@ -143,7 +117,7 @@ export default function SignIn() {
             <Grid container>
               <Grid item>
                 <Link href="/register" variant="body2">
-                  {"Register account"}
+                  Register account
                 </Link>
               </Grid>
             </Grid>

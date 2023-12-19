@@ -5,57 +5,19 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
-//import MenuIcon from '@mui/icons-material/Menu';
-//import { useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 
 
 
-// A COMPONENT TO SHOW BUTTONS DEPENDING IF USER IS AUTHENTICATED OR NOT
-// HAS LINKS TO DIFFERENT PAGES
-// HAS LOGOUT IF USER IS NOT LOGIN
-
-
-
-/*
-function Test() {
-  const location = useLocation();
-  console.log(location.pathname)
-  return location.pathname
-}
-*/
-
-function logoutButton() {
-  localStorage.removeItem("auth_token")
-  window.location.href = "/"
-}
-
-let button, button2
-
-if(window.location.href === "localhost:3000/posts") {
-  button2 = (
-    <div>
-
-    </div>
-  )
-} else {
-  button2= (
-    <div>
-      <Button color="inherit" href="/posts" variant="outlined">To Posts Page</Button>
-    </div>
-  )
-}
-
-
-
-export default function LoginAppBar({nameOfThePage, buttonName, buttonLocation}) {
+export default function PostsAppBar({nameOfThePage, buttonName, buttonLocation}) {
 
     const authToken = localStorage.getItem("auth_token")
-
+    let button
 
     if(!authToken) {
     button = <Button color="inherit" href={buttonLocation}>{buttonName}</Button>
     } else {
-    button = <Button color="inherit" className="logoutButton" onClick={logoutButton}>Logout</Button>
+    button = <Button color="inherit">Logout</Button>
     }
 
   return (
@@ -73,7 +35,6 @@ export default function LoginAppBar({nameOfThePage, buttonName, buttonLocation})
           <Typography variant="h6" component="div" textAlign="center" sx={{ flexGrow: 1 }}>
             {nameOfThePage}
           </Typography>
-          {button2}
           {button}
         </Toolbar>
       </AppBar>

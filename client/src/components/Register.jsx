@@ -3,33 +3,22 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-//import FormControlLabel from '@mui/material/FormControlLabel';
-//import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-//import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import LoginAppBar from './LoginAppBar';
-//import Alert from '@mui/material/Alert';
-//import AlertTitle from '@mui/material/AlertTitle';
 import Textarea from '@mui/joy/Textarea';
-
-
-
-
+import LoginAppBar from './LoginAppBar';
 // REGISTER PAGE
-// USER CAN REGISTER 
+// USER CAN REGISTER
 // NEEDS EMAIL, PASSWORD AND BIO
 // CREATION DATE IS SAVED TO DATABASE
 
-
 function storeToken(token) {
-  localStorage.setItem("auth_token", token);
+  localStorage.setItem('auth_token', token);
 }
-
 
 function Copyright(props) {
   return (
@@ -37,9 +26,10 @@ function Copyright(props) {
       {'Copyright © '}
       <Link color="inherit" href="https://mui.com/">
         Your Website
-      </Link>{' '}
+      </Link>
+      {' '}
       {new Date().getFullYear()}
-      {'.'}
+      .
     </Typography>
   );
 }
@@ -56,53 +46,38 @@ export default function Register() {
     });
 
     // SEND TO SERVER LOGIN ROUTE
-    fetch("/user/register", {
-      method: "POST",
+    fetch('/user/register', {
+      method: 'POST',
       headers: {
-          "Content-Type": "application/json"
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-          "email": data.get("email"),
-          "password": data.get('password'),
-          "bio": data.get("bio")
+        email: data.get('email'),
+        password: data.get('password'),
+        bio: data.get('bio'),
       }),
-      
-  })
+
+    })
       .then((response) => response.json())
       .then((data) => {
-          console.log("REGISTER FETCH OUTPUT")
-          if(data.token) {
-              console.log(data.token)
-              storeToken(data.token);
-              //window.location.href="/";
-          } else {
-              console.log("NO TOKEN GIVEN")
-              if(data.msg == "register worked"){
-                  console.log(data.msg)
-                  window.location.href="/login"
-              }
-              else if(data.message === "ok") {
-                  console.log("successfull")
-                  //window.location.href="/login.html";
-              } 
-              else if(data.msg == "Username already in use.") {
-                console.log("Username already in use.")
-              }
-              else {
-                  console.log("Very strange error!")
-              }
-
-
+        console.log('REGISTER FETCH OUTPUT');
+        console.log(`data token: ${data.token}`);
+        if (data.token) {
+          console.log(data.token);
+          storeToken(data.token);
+          // window.location.href="/";
+        } else {
+          console.log('NO TOKEN GIVEN');
+          if (data.msg == 'register worked') {
+            window.location.href = '/login';
           }
-
-      })
-
-
+        }
+      });
   };
 
   return (
     <ThemeProvider theme={theme}>
-    <LoginAppBar nameOfThePage={"Register page"} buttonName={"to Login"} buttonLocation={"/login"}  />
+      <LoginAppBar nameOfThePage="Register page" buttonName="to Login" buttonLocation="/login" />
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
@@ -113,9 +88,7 @@ export default function Register() {
             alignItems: 'center',
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-
-          </Avatar>
+          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }} />
           <Typography component="h1" variant="h5">
             Register
           </Typography>
@@ -162,7 +135,7 @@ export default function Register() {
             <Grid container>
               <Grid item>
                 <Link href="/login" variant="body2">
-                  {"Login"}
+                  Login
                 </Link>
               </Grid>
             </Grid>
